@@ -4,7 +4,7 @@ This project is built to convert Lambda Expression Binary Tree to SQL query.\
 I hope it can be of help to you.\
 Author: Man Pham
 
-### Example:\
+### Example:
 ```csharp
 var employeeQuery = new GenerateSQL<Employee>();
 //where
