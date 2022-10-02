@@ -74,3 +74,29 @@ Console.WriteLine("query21: " + query21);
 Console.WriteLine("query22: " + query22);
 Console.WriteLine("query23: " + query23);
 ```
+Output will be:
+```
+query1: SELECT * FROM Employee WHERE id='1' or name='Minh' and age='21'
+query2: SELECT * FROM Employee WHERE age='21' and id='1' and name='Man' or name='Pham'
+query3: SELECT id, age FROM Employee WHERE id='1' or name='Minh' and age='21'
+query4: SELECT age, name FROM Employee WHERE id='1' or name='Minh' and age='21'
+query5: SELECT id, age FROM Employee WHERE age='21' and id='1' and name='Man' or name='Pham'
+query6: SELECT age, name FROM Employee WHERE age='21' and id='1' and name='Man' or name='Pham'
+query7: SELECT name, id FROM Employee WHERE id='1' or id='2' and name='Man'
+query8: SELECT age, name FROM Employee WHERE name='Man'
+query9: SELECT * FROM Employee
+query10: SELECT id, age FROM Employee WHERE id='1' or name='Minh' and age='21'
+query11: SELECT age, name FROM Employee WHERE id='1' or name='Minh' and age='21'
+query12: SELECT id, age FROM Employee WHERE age='21' and id='1' and name='Man' or name='Pham'
+query13: SELECT age, name FROM Employee WHERE age='21' and id='1' and name='Man' or name='Pham'
+query14: SELECT * FROM Employee WHERE id='1' or name='Minh' and age='21'
+query15: SELECT * FROM Employee WHERE age='21' and id='1' and name='Man' or name='Pham'
+query16: SELECT id, age FROM Employee
+query17: SELECT age, name FROM Employee
+query18: SELECT id, age, name FROM Employee WHERE id='1' or name='Minh' and age='21' and age='21' and id='1' and name='Man' or name='Pham'
+query19: SELECT age, name, id FROM Employee WHERE id='1' or name='Minh' and age='21' and age='21' and id='1' and name='Man' or name='Pham'
+query20: SELECT id, age, name FROM Employee WHERE age='21' and id='1' and name='Man' or name='Pham' and id='1' or name='Minh' and age='21'
+query21: SELECT age, name, id FROM Employee WHERE age='21' and id='1' and name='Man' or name='Pham' and id='1' or name='Minh' and age='21'
+query22: SELECT name, age FROM Employee WHERE id='1' and name='Man'
+query23: SELECT name, age, id FROM Employee WHERE id='1' and name='Man'
+```
