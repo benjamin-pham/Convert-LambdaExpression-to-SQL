@@ -75,7 +75,7 @@ Console.WriteLine("query22: " + query22);
 Console.WriteLine("query23: " + query23);
 ```
 Output will be:
-```
+```sql
 query1: SELECT * FROM Employee WHERE id='1' or name='Minh' and age='21'
 query2: SELECT * FROM Employee WHERE age='21' and id='1' and name='Man' or name='Pham'
 query3: SELECT id, age FROM Employee WHERE id='1' or name='Minh' and age='21'
