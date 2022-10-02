@@ -5,6 +5,7 @@ I hope it can be of help to you.\
 Author: Man Pham
 
 ### Example:
+Example usage:
 ```csharp
 var employeeQuery = new GenerateSQL<Employee>();
 //where
