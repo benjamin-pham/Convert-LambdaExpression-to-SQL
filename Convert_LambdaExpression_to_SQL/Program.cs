@@ -12,11 +12,11 @@ namespace Convert_LambdaExpression_to_SQL
         {
             var employeeQuery = new GenerateSQL<Employee>();
             //where
-            Expression<Func<Employee, bool>> where1 = t => (t.id == 1 || t.name == "Minh") && t.age == 21;
+            Expression<Func<Employee, bool>> where1 = t => (t.name == "Man" || t.name == "Minh") && t.age == 21;
             Expression<Func<Employee, bool>>[] where2 = new Expression<Func<Employee, bool>>[]
             {
                 e=>e.age==21 && e.id==1,
-                e=>(e.name=="Man" || e.name == "Pham" || e.name=="a")
+                e=>e.name=="Man" || e.name == "Pham" || e.name=="a"
             };
             //select
             Expression<Func<Employee, Employee>> select1 = e => new Employee { id = e.id, age = e.age };
@@ -30,7 +30,7 @@ namespace Convert_LambdaExpression_to_SQL
             var query5 = employeeQuery.GenerateQuery(where2, select1);
             var query6 = employeeQuery.GenerateQuery(where2, select2);
 
-            var query7 = employeeQuery.GenerateQuery(x => (x.id == 1 || x.id == 2) && x.name == "Man", x => new Employee { name = x.name, id = x.id });
+            var query7 = employeeQuery.GenerateQuery(x => x.id == 1 || x.id == 2 && x.name == "Man", x => new Employee { name = x.name, id = x.id });
             var query8 = employeeQuery.GenerateQuery(x=>x.name=="Man", select2);
 
             var query9 = employeeQuery.ToQuery();
