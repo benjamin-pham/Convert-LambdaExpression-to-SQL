@@ -73,6 +73,7 @@ namespace Convert_LambdaExpression_to_SQL
         {
             if (expression != null)
             {
+                
                 if (!string.IsNullOrEmpty(GetComparisonlOperation(expression.NodeType)))
                 {
                     if (expression.Left.NodeType is ExpressionType.MemberAccess && expression.Right.NodeType is ExpressionType.Constant)
@@ -86,27 +87,41 @@ namespace Convert_LambdaExpression_to_SQL
                         this.whereClause = this.whereClause + "'" + Expression.Lambda(expression.Left).Compile().DynamicInvoke() + "'"
                             + GetComparisonlOperation(expression.NodeType)
                             + ((MemberExpression)expression.Right).Member.Name;
+
                     }
                     else
                     {
                         throw new Exception("fail");
                     }
+                    
+                }
+                if (expression.NodeType == ExpressionType.OrElse)
+                {
+                    this.whereClause += "(";
                 }
                 if (expression.NodeType == ExpressionType.OrElse || expression.NodeType == ExpressionType.AndAlso)
                 {
                     GengerateWhereClause((BinaryExpression)expression.Left);
                 }
+                
                 if (expression.NodeType == ExpressionType.OrElse)
                 {
                     this.whereClause += " or ";
                 }
+                
                 if (expression.NodeType == ExpressionType.AndAlso)
                 {
+
                     this.whereClause += " and ";
                 }
+                
                 if (expression.NodeType == ExpressionType.OrElse || expression.NodeType == ExpressionType.AndAlso)
+                {                    
+                    GengerateWhereClause((BinaryExpression)expression.Right);                    
+                }
+                if (expression.NodeType == ExpressionType.OrElse)
                 {
-                    GengerateWhereClause((BinaryExpression)expression.Right);
+                    this.whereClause += ")";
                 }
             }
         }
@@ -133,6 +148,10 @@ namespace Convert_LambdaExpression_to_SQL
                         throw new Exception("fail");
                     }
                 }
+                if (expression.NodeType == ExpressionType.OrElse)
+                {
+                    this.listWhere.Add("(");
+                }
                 if (expression.NodeType == ExpressionType.OrElse || expression.NodeType == ExpressionType.AndAlso)
                 {
                     GengerateWhere((BinaryExpression)expression.Left);
@@ -148,6 +167,10 @@ namespace Convert_LambdaExpression_to_SQL
                 if (expression.NodeType == ExpressionType.OrElse || expression.NodeType == ExpressionType.AndAlso)
                 {
                     GengerateWhere((BinaryExpression)expression.Right);
+                }
+                if (expression.NodeType == ExpressionType.OrElse)
+                {
+                    this.listWhere.Add(")");
                 }
             }
         }
