@@ -51,29 +51,7 @@ var query21 = employeeQuery.Where(where2).Where(where1).Select(select2).Select(s
 var query22 = employeeQuery.Where(x => x.id == 1 && x.name == "Man").Select(x => new Employee { name = x.name, age = x.age }).ToQuery();
 var query23 = employeeQuery.Where(x => x.id == 1).Where(x => x.name == "Man").Select(x => new Employee { name = x.name, age = x.age }).Select(x => new Employee { name = x.name, id = x.id }).ToQuery();
 
-Console.WriteLine("query1: " + query1);
-Console.WriteLine("query2: " + query2);
-Console.WriteLine("query3: " + query3);
-Console.WriteLine("query4: " + query4);
-Console.WriteLine("query5: " + query5);
-Console.WriteLine("query6: " + query6);
-Console.WriteLine("query7: " + query7);
-Console.WriteLine("query8: " + query8);
-Console.WriteLine("query9: " + query9);
-Console.WriteLine("query10: " + query10);
-Console.WriteLine("query11: " + query11);
-Console.WriteLine("query12: " + query12);
-Console.WriteLine("query13: " + query13);
-Console.WriteLine("query14: " + query14);
-Console.WriteLine("query15: " + query15);
-Console.WriteLine("query16: " + query16);
-Console.WriteLine("query17: " + query17);
-Console.WriteLine("query18: " + query18);
-Console.WriteLine("query19: " + query19);
-Console.WriteLine("query20: " + query20);
-Console.WriteLine("query21: " + query21);
-Console.WriteLine("query22: " + query22);
-Console.WriteLine("query23: " + query23);
+
 ```
 Output will be:
 ```sql
